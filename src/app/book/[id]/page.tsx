@@ -36,32 +36,25 @@ export default function BookDetailPage() {
 
   const handleAddToCart = () => {
     if (!book) return;
-
     const cartItem: CartItem = {
       id: `${book.id}-${Date.now()}`,
       bookId: book.id,
       quantity: quantity,
       addedAt: new Date().toISOString(),
     };
-
     // Retrieve existing cart from localStorage
     const storedCart = localStorage.getItem('cart');
     const cart: CartItem[] = storedCart ? JSON.parse(storedCart) : [];
-
     // Check if the book is already in the cart
     const existingItemIndex = cart.findIndex((item) => item.bookId === book.id);
-
     if (existingItemIndex > -1) {
       // Update quantity if item already exists
       cart[existingItemIndex].quantity += quantity;
     } else {
       // Add new item to cart
-      cart.push(cartItem);
-    }
-
+      cart.push(cartItem); }
     // Save updated cart to localStorage
     localStorage.setItem('cart', JSON.stringify(cart));
-
     // Dispatch a custom event to notify the Navbar
     window.dispatchEvent(new CustomEvent('cartUpdated'));
 
@@ -125,7 +118,7 @@ export default function BookDetailPage() {
     return (
       <div className="text-center py-10">
         <h1 className="text-2xl font-bold text-red-500">{error}</h1>
-        <Link href="/" className="text-blue-500 hover:underline mt-4 inline-block cursor-pointer">
+        <Link href="/" className="text-red-500 hover:underline mt-4 inline-block cursor-pointer">
           Back to Home
         </Link>
       </div>
@@ -165,7 +158,7 @@ export default function BookDetailPage() {
             ))}
           </div>
 
-          <div className="text-3xl font-bold text-blue-600 mb-6">${book.price.toFixed(2)}</div>
+          <div className="text-3xl font-bold text-red-600 mb-6">${book.price.toFixed(2)}</div>
 
           <div className="flex items-center space-x-4 mb-6">
             <label htmlFor="quantity" className="font-semibold">Quantity:</label>
@@ -175,18 +168,18 @@ export default function BookDetailPage() {
               min="1"
               value={quantity}
               onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value, 10) || 1))}
-              className="w-20 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-20 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
             />
           </div>
 
           <button 
             onClick={handleAddToCart}
-            className="w-full bg-blue-500 text-white py-3 rounded-md hover:bg-blue-600 transition-colors duration-300 text-lg font-semibold cursor-pointer"
+            className="w-full bg-red-500 text-white py-3 rounded-md hover:bg-red-600 transition-colors duration-300 text-lg font-semibold cursor-pointer"
           >
             Add to Cart
           </button>
 
-          <Link href="/" className="text-blue-500 hover:underline mt-6 text-center cursor-pointer">
+          <Link href="/" className="text-red-500 hover:underline mt-6 text-center cursor-pointer">
             &larr; Back to Home
           </Link>
         </div>

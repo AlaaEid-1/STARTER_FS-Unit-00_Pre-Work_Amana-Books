@@ -874,5 +874,22 @@ export const books: Book[] = [
     reviewCount: 16,
     inStock: true,
     featured: true,
-  }
+  },{
+  id: '46',
+    title: 'python Alaa Eid',
+    author: 'Dr. Ahmad Al-Kindi',
+    description: 'A comprehensive introduction to classical mechanics covering Newtonian dynamics, conservation laws, rotational motion, and oscillations with modern applications.',
+    price: 89.99,
+    image: '/images/book1.jpg',
+    isbn: '978-0123456789',
+    genre: ['Physics', 'Textbook'],
+    tags: ['Mechanics', 'Physics', 'University'],
+    datePublished: '2022-01-15',
+    pages: 654,
+    language: 'English',
+    publisher: 'Al-Biruni Academic Press',
+    rating: 4.8,
+    reviewCount: 23,
+    inStock: true,
+    featured: true,}
 ];

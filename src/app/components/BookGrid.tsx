@@ -139,14 +139,14 @@ const BookGrid: React.FC<BookGridProps> = ({ books, onAddToCart }) => {
           {totalFeaturedPages > 1 && (
             <div className="flex items-center gap-4">
               {/* Carousel Indicators */}
-              <div className="flex gap-2">
+              <div className="flex gap-6">
                 {Array.from({ length: totalFeaturedPages }, (_, index) => (
                   <button
                     key={index}
                     onClick={() => goToFeaturedPage(index)}
-                    className={`w-2 h-2 rounded-full transition-colors duration-200 cursor-pointer ${
+                    className={`w-9 h-2 rounded-full transition-colors duration-200 cursor-pointer ${
                       index === featuredCarouselIndex 
-                        ? 'bg-blue-600' 
+                        ? 'bg-red-600' 
                         : 'bg-gray-300 hover:bg-gray-400'
                     }`}
                     aria-label={`Go to featured books page ${index + 1}`}
@@ -181,7 +181,7 @@ const BookGrid: React.FC<BookGridProps> = ({ books, onAddToCart }) => {
         
         {/* Featured Books Carousel */}
         <div className="relative">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
             {currentFeaturedBooks.map(book => (
               <BookCard key={book.id} book={book} onAddToCart={onAddToCart} />
             ))}
@@ -206,7 +206,7 @@ const BookGrid: React.FC<BookGridProps> = ({ books, onAddToCart }) => {
               placeholder="Search by title or author..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
             />
           </div>
           <div className="w-full md:w-1/4">
@@ -217,7 +217,7 @@ const BookGrid: React.FC<BookGridProps> = ({ books, onAddToCart }) => {
               id="genreFilter"
               value={selectedGenre}
               onChange={(e) => setSelectedGenre(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 bg-white"
             >
               {genres.map(genre => (
                 <option key={genre} value={genre}>{genre}</option>
@@ -241,7 +241,7 @@ const BookGrid: React.FC<BookGridProps> = ({ books, onAddToCart }) => {
                 id="sortBy"
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-sm"
+                className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 bg-white text-sm"
               >
                 <option value="title">Title</option>
                 <option value="author">Author</option>

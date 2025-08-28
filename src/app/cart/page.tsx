@@ -91,8 +91,8 @@ export default function CartPage() {
       
       {cartItems.length === 0 ? (
         <div className="text-center py-12 bg-white rounded-lg shadow-md">
-          <h2 className="text-xl text-gray-600 mb-4">Your cart is empty</h2>
-          <Link href="/" className="bg-blue-500 text-white px-6 py-3 rounded-md hover:bg-blue-600 transition-colors cursor-pointer">
+          <h2 className="text-xl text-gray-600 mb-8">Your cart is empty</h2>
+          <Link href="/" className="bg-red-500 text-white px-6 py-3 rounded-md hover:bg-blue-600 transition-colors cursor-pointer">
             Continue Shopping
           </Link>
         </div>
@@ -114,7 +114,7 @@ export default function CartPage() {
               <span>Total: ${totalPrice.toFixed(2)}</span>
             </div>
             
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-col  gap-8">
               <Link href="/" className="flex-1 bg-gray-500 text-white text-center py-3 rounded-md hover:bg-gray-600 transition-colors cursor-pointer">
                 Continue Shopping
               </Link>
